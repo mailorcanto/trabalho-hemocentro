@@ -201,5 +201,7 @@ function buscarDoadoresData(){
     
 }
 
+//5. Sair: o programa deve encerrar.
+
 menu();
 
