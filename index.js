@@ -171,13 +171,13 @@ function buscarDoadoresTipo(){
 function buscarDoadoresData(){
     var data = prompt('Digite a data desejada (dd/mm/aaaa):');
     let trechosData = data.split("/");  //recebendo a string 'data' em um array e separando conforme as barras (/)
-    let comparadorData = [trechosData[2], trechosData[1], trechosData[0]].join("-") //recebendo informações do array trechosData e invertendo a posição dos índices para (ano/mes/dia) possibilitando fazer a comparação adequada de datas
+    let comparadorData = [trechosData[2], trechosData[1], trechosData[0]].join("-") //recebendo dados do array trechosData inversamente (a partir do último índice) e transformando-os em uma string no formato 'aaa-mm-dd', para fazer a comparação correta entre datas
     var doadoresDisponiveis = [];
 
     for (i = 0; i < arrayDoadores.length ; i++){
         let trechosArray = arrayDoadores[i].ultimaDoacao.split("/");
         let comparadorArray = [trechosArray[2], trechosArray[1], trechosArray[0]].join("-")
-        if (comparadorArray <= comparadorData){
+        if (comparadorArray <= comparadorData){ //boolean consegue comparar valores numéricos de uma string
             doadoresDisponiveis.push(`
             ${arrayDoadores[i].nome}   | ${arrayDoadores[i].idade}     | ${arrayDoadores[i].peso}     | ${arrayDoadores[i].tipoSanguineo}    | ${arrayDoadores[i].ultimaDoacao}
             `)
